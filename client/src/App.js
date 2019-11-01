@@ -20,8 +20,6 @@ class App extends Component {
     });
   }
 
-  // getGps() {}
-
   renderPracticeNames() {}
 
   render() {
