@@ -1,8 +1,6 @@
 const express = require("express");
 
 const createRouter = function(data) {
-  console.log("data?", data);
-
   const router = express.Router();
 
   router.get("/", (req, res) => {
