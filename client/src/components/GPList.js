@@ -2,12 +2,14 @@ import React, { Component } from "react";
 
 class GPList extends Component {
   render() {
-    console.log("this props", this.props);
+    if (this.props.filteredPractices) {
+      const practices = this.props.filteredPractices.map((practice, index) => {
+        return <li key={index}>{practice.GPPracticeName}</li>;
+      });
+      return <ul>{practices}</ul>;
+    }
 
-    const practices = this.props.practices.map((practice, index) => {
-      return <li key={index}>{practice.GPPracticeName}</li>;
-    });
-    return <ul>{practices}</ul>;
+    return null;
   }
 }
 
