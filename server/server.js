@@ -14,7 +14,7 @@ let nhsInfo = [];
 
 function getInfo() {
   fetch(
-    "https://www.opendata.nhs.scot/api/3/action/datastore_search?resource_id=204bf88e-a2e7-4e57-8515-66c2f4ee4c28&limit=1000"
+    "https://www.opendata.nhs.scot/api/3/action/datastore_search?resource_id=c01dc5f3-86ea-4a3d-8e0c-1d29f04a85d7&limit=935"
   )
     .then(response => response.json())
     .then(function(data) {
