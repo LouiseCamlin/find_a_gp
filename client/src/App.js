@@ -22,7 +22,8 @@ class App extends Component {
           practice.AddressLine1.toLowerCase(),
           practice.AddressLine2.toLowerCase(),
           practice.AddressLine3.toLowerCase(),
-          practice.AddressLine4.toLowerCase()
+          practice.AddressLine4.toLowerCase(),
+          practice.Postcode.toLowerCase()
         ];
         return practice;
       });
