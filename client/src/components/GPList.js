@@ -1,16 +1,24 @@
-import React, { Component } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 
-class GPList extends Component {
-  render() {
-    if (this.props.filteredPractices) {
-      const practices = this.props.filteredPractices.map((practice, index) => {
-        return <li key={index}>{practice.GPPracticeName}</li>;
-      });
-      return <ul>{practices}</ul>;
-    }
+const GPList = props => {
+  console.log();
 
-    return null;
+  if (props.filteredPractices) {
+    const practices = props.filteredPractices.map((practice, index) => {
+      return (
+        <>
+          <li>
+            <Link to={"/" + practice.id}>
+              {practice.GPPracticeName} - {practice.id}
+            </Link>
+          </li>
+        </>
+      );
+    });
+    return <ul>{practices}</ul>;
   }
-}
+  return null;
+};
 
 export default GPList;
