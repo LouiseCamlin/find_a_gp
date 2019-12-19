@@ -34,7 +34,7 @@ class GPItem extends Component {
 
         <div>
           <h2>Telephone Numbers</h2>
-          <p>{this.state.focusGp.Postcode}</p>
+          <p>{this.state.focusGp.TelephoneNumber}</p>
         </div>
       </div>
     );
