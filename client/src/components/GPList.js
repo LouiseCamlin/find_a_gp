@@ -7,13 +7,11 @@ const GPList = props => {
   if (props.filteredPractices) {
     const practices = props.filteredPractices.map((practice, index) => {
       return (
-        <>
-          <li>
-            <Link to={"/" + practice.id}>
-              {practice.GPPracticeName} - {practice.id}
-            </Link>
-          </li>
-        </>
+        <li key={index}>
+          <Link to={"/" + practice.id}>
+            {practice.GPPracticeName} - {practice.id}
+          </Link>
+        </li>
       );
     });
     return <ul>{practices}</ul>;
