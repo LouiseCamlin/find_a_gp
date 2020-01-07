@@ -2,10 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const GPList = props => {
-  console.log();
-
-  if (props.filteredPractices) {
-    const practices = props.filteredPractices.map((practice, index) => {
+  if (props.filteredPractices[0]) {
+    const practices = props.filteredPractices[0].map((practice, index) => {
       return (
         <li key={index}>
           <Link to={"/" + practice.id}>

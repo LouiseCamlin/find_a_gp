@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Request from "../helpers/Request.js";
 import GPList from "../components/GPList.js";
 import SearchBar from "../components/SearchBar";
+import { connect } from "react-redux";
 
 class MainContainer extends Component {
   constructor(props) {
@@ -38,9 +39,15 @@ class MainContainer extends Component {
       practice.fullAddress.toString().includes(searchString)
     );
     console.log("filteredAddresses", filteredAddresses);
-    this.setState({
-      searchResults: filteredAddresses
-    });
+    this.setState(
+      {
+        searchResults: filteredAddresses
+      },
+      () => {
+        this.props.clearList();
+        this.props.addListItem(this.state.searchResults);
+      }
+    );
   }
 
   onHandleClick(searchString) {
@@ -56,7 +63,7 @@ class MainContainer extends Component {
             onHandleClick={this.onHandleClick}
           />
           <GPList
-            filteredPractices={this.state.searchResults}
+            filteredPractices={this.props.transactions}
             practices={this.state.gpPractices}
           />
         </>
@@ -66,4 +73,29 @@ class MainContainer extends Component {
   }
 }
 
-export default MainContainer;
+const mapDispatchToProps = dispatch => {
+  return {
+    addListItem: newItem => {
+      dispatch({
+        type: "ADD_TRANSACTION",
+        item: newItem
+      });
+    },
+    clearList: () => {
+      dispatch({
+        type: "CLEAR_LIST"
+      });
+    }
+  };
+};
+
+const mapStateToProps = state => {
+  return {
+    transactions: state
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MainContainer);
