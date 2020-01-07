@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Request from "../helpers/Request";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
-import L from "leaflet";
 
 class GPItem extends Component {
   constructor(props) {
@@ -22,7 +21,6 @@ class GPItem extends Component {
       this.setState({ focusGp: data }, () => {
         provider
           .search({ query: this.state.focusGp.Postcode })
-          // .then(results => console.log("results", results[0]));
           .then(results => {
             this.setState({
               latitude: results[0].x,
