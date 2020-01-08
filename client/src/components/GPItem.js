@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Request from "../helpers/Request";
-import { OpenStreetMapProvider } from "leaflet-geosearch";
+import { EsriProvider } from "leaflet-geosearch";
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 
 class GPItem extends Component {
@@ -16,7 +16,7 @@ class GPItem extends Component {
   componentDidMount() {
     const request = new Request();
     const url = `http://localhost:3001/api/${this.props.id}`;
-    const provider = new OpenStreetMapProvider();
+    const provider = new EsriProvider();
     request.get(url).then(data => {
       this.setState({ focusGp: data }, () => {
         provider
@@ -60,7 +60,6 @@ class GPItem extends Component {
 
   render() {
     if (this.state.focusGp === null) return null;
-    console.log("id?", this.props.id);
 
     return (
       <div>
