@@ -36,6 +36,11 @@ class GPItem extends Component {
     if (this.state.latitude && this.state.longitude) {
       position = [this.state.longitude, this.state.latitude];
     }
+
+    if (this.state.latitude === null || this.state.longitude === null) {
+      return null;
+    }
+
     return (
       <Map center={position} zoom={15}>
         <TileLayer
